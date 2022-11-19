@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)https://app.forestadmin.com/KEVIN-DEMO-2022/Development/Operations/data/myGarage/index -->
+<html lang="en" data-theme="light"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css" data-tag-name="trix-editor">trix-editor {
+  display: block;
+}
+
+trix-editor:empty:not(:focus)::before {
+  content: attr(placeholder);
+  color: graytext;
+  cursor: text;
+  pointer-events: none;
+}
+
+trix-editor a[contenteditable=false] {
+  cursor: text;
+}
+
+trix-editor img {
+  max-width: 100%;
+  height: auto;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea {
+  resize: none;
+}
+
+trix-editor [data-trix-attachment] figcaption textarea.trix-autoresize-clone {
+  position: absolute;
+  left: -9999px;
+  max-height: 0px;
+}
+
+trix-editor [data-trix-attachment] figcaption[data-trix-placeholder]:empty::before {
+  content: attr(data-trix-placeholder);
+  color: graytext;
+}
+
+trix-editor [data-trix-cursor-target] {
+  display: inline-block !important;
+  width: 1px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+trix-editor [data-trix-cursor-target=left] {
+  vertical-align: top !important;
+  margin-left: -1px !important;
+}
+
+trix-editor [data-trix-cursor-target=right] {
+  vertical-align: bottom !important;
+  margin-right: -1px !important;
+}</style><style type="text/css" data-tag-name="trix-toolbar">trix-toolbar {
+  display: block;
+}
+
+trix-toolbar {
+  white-space: nowrap;
+}
+
+trix-toolbar [data-trix-dialog] {
+  display: none;
+}
+
+trix-toolbar [data-trix-dialog][data-trix-active] {
+  display: block;
+}
+
+trix-toolbar [data-trix-dialog] [data-trix-validate]:invalid {
+  background-color: #ffdddd;
+}</style>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:logo" content="/logo.png">
+
+    <title>Forest Admin ‣ Data ‣ My Garages</title>
+
+    
+<meta name="client/config/environment" content="%7B%22modulePrefix%22%3A%22client%22%2C%22podModulePrefix%22%3A%22client%2Fpods%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22%2F%22%2C%22locationType%22%3A%22auto%22%2C%22apollo%22%3A%7B%22apiURL%22%3A%22https%3A%2F%2Fapi.forestadmin.com%2Fgraphql%22%2C%22subscriptionURL%22%3A%22wss%3A%2F%2Fforestadmin-server.herokuapp.com%2Fsubscriptions%22%2C%22requestCredentials%22%3A%22include%22%7D%2C%22ember-simple-auth-saml%22%3A%7B%22samlRequestEndpoint%22%3A%22%2Fapi%2Fsaml%2Flogin%22%7D%2C%22ember-simple-auth-token%22%3A%7B%22refreshAccessTokens%22%3Atrue%2C%22refreshTokenPropertyName%22%3A%22refreshToken%22%2C%22refreshLeeway%22%3A600%2C%22refreshAccessTokenRetryAttempts%22%3A1%2C%22serverTokenRefreshEndpoint%22%3A%22https%3A%2F%2Fapi.forestadmin.com%2Fapi%2Fsessions%2Frefresh%22%2C%22tokenExpirationInvalidateSession%22%3Afalse%2C%22tokenExpireName%22%3A%22exp%22%2C%22serverTokenEndpoint%22%3A%22https%3A%2F%2Fapi.forestadmin.com%2Fapi%2Fsessions%22%2C%22serverGoogleTokenEndpoint%22%3A%22https%3A%2F%2Fapi.forestadmin.com%2Fapi%2Fsessions-google%22%2C%22serverGoogleSignInEndpoint%22%3A%22https%3A%2F%2Fapi.forestadmin.com%2Fapi%2Fsessions-google%2Fcreate%22%2C%22serverLiveDemoTokenEndpoint%22%3A%22https%3A%2F%2Fapi.forestadmin.com%2Fapi%2Fsessions-livedemo%22%2C%22serverSamlTokenEndpoint%22%3A%22https%3A%2F%2Fapi.forestadmin.com%2Fapi%2Fsaml%2Fsession%22%2C%22authorizationPrefix%22%3A%22Bearer%20%22%7D%2C%22ember-cli-mirage%22%3A%7B%22excludeFilesFromBuild%22%3Atrue%2C%22enabled%22%3Afalse%2C%22usingProxy%22%3Afalse%2C%22useDefaultPassthroughs%22%3Atrue%7D%2C%22%40ember-decorators%2Fargument%22%3A%7B%22disableCodeStripping%22%3Atrue%7D%2C%22sentry%22%3A%7B%22dsn%22%3A%22https%3A%2F%2Fe2ed514e88cb47caa2841b41c071a75a%40o460888.ingest.sentry.io%2F5461860%22%2C%22environment%22%3A%22production%22%2C%22release%22%3A%222.454.2%22%2C%22sampleRate%22%3A0.05%2C%22ignoreErrors%22%3A%5B%22RangeError%22%2C%22TaskCancelation%22%2C%22UnhandledRejection%22%5D%7D%2C%22delay-app-boot%22%3A%7B%22delay%22%3A250%2C%22environments%22%3A%5B%22development%22%5D%7D%2C%22moment%22%3A%7B%22includeTimezone%22%3A%22subset%22%2C%22includeLocales%22%3A%5B%22en%22%2C%22fr%22%2C%22es%22%2C%22pt%22%2C%22de%22%2C%22cs%22%2C%22zh-cn%22%2C%22ar%22%2C%22en-gb%22%2C%22fr-ca%22%2C%22ru%22%5D%2C%22allowEmpty%22%3Atrue%7D%2C%22segment%22%3A%7B%22WRITE_KEY%22%3A%228XBmylUW2KdhLnSvB0ouhuAuzTMHEgYQ%22%2C%22LOG_EVENT_TRACKING%22%3Afalse%7D%2C%22nodeEnv%22%3A%22production%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3A%7B%22Date%22%3Afalse%7D%2C%22_APPLICATION_TEMPLATE_WRAPPER%22%3Afalse%2C%22_JQUERY_INTEGRATION%22%3Atrue%2C%22_TEMPLATE_ONLY_GLIMMER_COMPONENTS%22%3Atrue%7D%2C%22APP%22%3A%7B%22apiServerHost%22%3A%22https%3A%2F%2Fapi.forestadmin.com%22%2C%22apiVersion%22%3A%222.8.1%22%2C%22colorDefault%22%3A%22%2354BD7E%22%2C%22defaultDomain%22%3A%22app.forestadmin.com%22%2C%22intervalBetweenListAndCount%22%3A150%2C%22liveDemoRenderingUrls%22%3A%22%2FLive%20Demo%2FProduction%2FOperations%2C%2Fdemo-finance%2FProduction%2FKYC%20team%2C%2Fdemo-transactions-monitoring%2FProduction%2FFinance%20team%2C%2Fdemo-mobility%2FProduction%2FOperations%2C%2Fdemo-incident-management%2FProduction%2FCustomer%20service%22%2C%22maxRecordsPerPage%22%3A500%2C%22namespace%22%3A%22forest%22%2C%22urlContactSales%22%3A%22https%3A%2F%2Fforestadmin.com%2Fcontact-sales%22%2C%22urlDocumentation%22%3A%22https%3A%2F%2Fdocs.forestadmin.com%2F%22%2C%22supportedStacks%22%3A%5B%22Rails%22%2C%22Django%22%2C%22Express%2FSequelize%22%2C%22Express%2FMongoose%22%2C%22Laravel%22%5D%2C%22toastrDefaultDuration%22%3A5000%2C%22useSSL%22%3Atrue%2C%22models%22%3A%7B%22nonIdentifierIdFieldAlias%22%3A%22____id____%22%7D%2C%22google-oauth2%22%3A%7B%22redirectUri%22%3A%22https%3A%2F%2Fapp.forestadmin.com%2Fgoogle-auth-redirect%22%2C%22clientId%22%3A%22156875913710-aop1r539unsindps683h2ip0t95vdtov.apps.googleusercontent.com%22%2C%22accessType%22%3A%22offline%22%2C%22scope%22%3A%22https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%22%7D%2C%22mapbox%22%3A%7B%22accessToken%22%3A%22pk.eyJ1IjoiYXJuYXVkYmVzbmllciIsImEiOiJjbDk1cjYwMGkwMG1qM3VteW1nY2owNDAwIn0.mR072DqiKgAqZNhRzO9hxQ%22%7D%2C%22bookSetupCallUrl%22%3A%22https%3A%2F%2Fshare-eu1.hsforms.com%2F1dHGMUm6WSTeBkBJBflDRWgf5rs1%22%2C%22hubspotLiveChatUrl%22%3A%22https%3A%2F%2Fjs-eu1.hs-scripts.com%2F25463521.js%22%2C%22experimentIdForArchitecturePicker%22%3A%22QwX_o-scS9malYdfw5RAqQ%22%2C%22name%22%3A%22client%22%2C%22version%22%3A%222.454.2%22%2C%22validatorDefaultLocale%22%3A%22en%22%7D%2C%22ifa%22%3A%7B%22enabled%22%3Atrue%2C%22inline%22%3Afalse%7D%2C%22ember-a11y-testing%22%3A%7B%22componentOptions%22%3A%7B%22turnAuditOff%22%3Atrue%2C%22excludeAxeCore%22%3Atrue%2C%22axeOptions%22%3A%7B%22iframes%22%3Afalse%2C%22reporter%22%3A%22v2%22%2C%22resultTypes%22%3A%5B%22violations%22%5D%2C%22rules%22%3A%7B%22duplicate-id%22%3A%7B%22enabled%22%3Afalse%7D%2C%22duplicate-id-active%22%3A%7B%22enabled%22%3Afalse%7D%2C%22duplicate-id-aria%22%3A%7B%22enabled%22%3Afalse%7D%7D%7D%7D%7D%7D">
+<meta name="ember-cli-ifa:assetMap" content="%22%2Fassets%2FassetMap-8672e97689c6bd986efbe5b3cce5d97d.json%22">
+
+    <link rel="stylesheet" href="./Forest Admin ‣ Data ‣ My Garages_files/vendor-f32f9403e668ce89a4013f0fbea767c7.css" integrity="sha256-TRYYLa63EXDLdJQ+hEYO1bRXy9UNDD0l2Gs87i1xjmo= sha512-noErn5K7Je2oEo7SpqYsCDT6v+FgooJSTiW/OiKeWt1zegRZcsz8L1NJvecExtAA1iMeHv2BQzA++FXCi8+Nag==">
+    <link rel="stylesheet" href="./Forest Admin ‣ Data ‣ My Garages_files/client-2fd3fb47d9b871c2e47b5aca717d809f.css" integrity="sha256-kcgm2AhdCwpdJ64hb5JpJg4JV+oX2e8kekona4fFjf0= sha512-7dt4RIr+oFI93nawsK+rokHHUw9iHC9fztAZiU1rbuCwMAfmsc/nMpexXMv8DxkkZQv6AKUhSGleLzINRIzDJQ==">
+
+    <link rel="preload" href="https://app.forestadmin.com/fonts/inter/Inter-Regular-515cae74eee4925d56e6ac70c25fc0f6.ttf" as="font" type="font/ttf" crossorigin="">
+    <link rel="preload" href="https://app.forestadmin.com/fonts/inter/Inter-Medium-5ff1f2a9a78730d7d0c309320ff3c9c7.ttf" as="font" type="font/ttf" crossorigin="">
+    <link rel="preload" href="https://app.forestadmin.com/fonts/inter/Inter-SemiBold-ec60b23f3405050f546f4765a9e90fec.ttf" as="font" type="font/ttf" crossorigin="">
+    <link rel="preload" href="https://app.forestadmin.com/fonts/material-design-icons/MaterialIcons-280094f25da8bd85f84f82326ba312d3.woff2" as="font" type="font/woff2" crossorigin="">
+    <link rel="preload" href="https://app.forestadmin.com/fonts/material-design-icons/MaterialIcons-Outlined-11a231d9fac9a1b07a1b54dbb62846ad.woff2" as="font" type="font/woff2" crossorigin="">
+    <script crossorigin="anonymous" integrity="sha256-krOgVawdJg1qxws6lVg3p7MzkGtn09mD8Iw6QcEEYZw=" type="text/javascript" src="./Forest Admin ‣ Data ‣ My Garages_files/appcues.main.73853a0bd10ab658becfe00096fe51b0518931a3.js" async=""></script><script type="text/javascript" async="" src="./Forest Admin ‣ Data ‣ My Garages_files/wootric-sdk.js"></script><script type="text/javascript" async="" src="./Forest Admin ‣ Data ‣ My Garages_files/js"></script><script type="text/javascript" async="" src="./Forest Admin ‣ Data ‣ My Garages_files/qevents.js"></script><script type="text/javascript" async="" src="./Forest Admin ‣ Data ‣ My Garages_files/94098.js"></script><script type="text/javascript" async="" src="./Forest Admin ‣ Data ‣ My Garages_files/track-eu.js" id="cio-tracker" data-site-id="52eb6638930678a3f6d0"></script><script type="text/javascript" async="" src="./Forest Admin ‣ Data ‣ My Garages_files/analytics.js"></script><script type="text/javascript" src="./Forest Admin ‣ Data ‣ My Garages_files/commons.c42222c4cb2f8913500f.js.gz" async="" status="loaded"></script><script type="text/javascript" src="./Forest Admin ‣ Data ‣ My Garages_files/quora-conversion-pixel.dynamic.js.gz" async="" status="loaded"></script><script type="text/javascript" src="./Forest Admin ‣ Data ‣ My Garages_files/appcues.dynamic.js.gz" async="" status="loaded"></script><script type="text/javascript" src="./Forest Admin ‣ Data ‣ My Garages_files/customerio.dynamic.js.gz" async="" status="loaded"></script><script type="text/javascript" src="./Forest Admin ‣ Data ‣ My Garages_files/visual-tagger.dynamic.js.gz" async="" status="loaded"></script><script type="text/javascript" src="./Forest Admin ‣ Data ‣ My Garages_files/wootric.dynamic.js.gz" async="" status="loaded"></script><script type="text/javascript" src="./Forest Admin ‣ Data ‣ My Garages_files/google-analytics.dynamic.js.gz" async="" status="loaded"></script><script type="text/javascript" async="" src="./Forest Admin ‣ Data ‣ My Garages_files/analytics.min.js"></script><script type="text/javascript" src="./Forest Admin ‣ Data ‣ My Garages_files/broadcast-channel-e52e06129820a48cef1da50793afcd1b.js" crossorigin="" integrity="sha256-a/CUMKapnSViQuMjFYcwgBHuuOrVqUSickAKLr+IXrY= sha512-sm2otCSxtYF1Ps5OqyUpiEywt8nD7IY+afqJYNDra1lOx8ZcY0WHCCP5gOCKnxt1ooNo7n1KVY5H0ahBoBns8g=="></script>
+
+    <link rel="icon" id="favicon" type="image/x-icon" href="https://app.forestadmin.com/img/favicons/default-27218540250faa3b8d9d919083016b04.png">
+
+    
+  <iframe src="./Forest Admin ‣ Data ‣ My Garages_files/saved_resource.html"></iframe><iframe src="./Forest Admin ‣ Data ‣ My Garages_files/saved_resource(1).html"></iframe><iframe src="./Forest Admin ‣ Data ‣ My Garages_files/saved_resource(2).html"></iframe><link rel="stylesheet" type="text/css" integrity="sha256-1ksk1w6tvNv0tSIxcv6kU+GFMdikj2NXJ9l+RWWflt4=" crossorigin="anonymous" href="./Forest Admin ‣ Data ‣ My Garages_files/container.73853a0bd10ab658becfe00096fe51b0518931a3.css"><iframe src="./Forest Admin ‣ Data ‣ My Garages_files/saved_resource(3).html"></iframe></head>
+  <body class="l-application ember-application" cz-shortcut-listen="true" style="--color-primary-100:#f0f9f4; --color-primary-200:#e2f4e9; --color-primary-300:#c6e9d4; --color-primary-400:#b7e3c9; --color-primary-500:#9bd8b4; --color-primary-600:#70c893; --color-primary-700:#54bd7e; --color-primary-800:#3ea166; --color-primary-900:#317e50;">
+    <div id="tooltips-container"></div>
+    
+    
+
+    <script src="./Forest Admin ‣ Data ‣ My Garages_files/vendor-b22584ca7f56c6365d876dac31ad6280.js" integrity="sha256-+m4Vit8CcBpAsffiIELEWNCZOCgXr8VQsklS8jnRvkY= sha512-amGqMIfh7/gYRUekM1GwIR78lH9lBdscZIrpK1pSb17wOflAd5Jftearnz2lSBc5HY+1A0BUBcASQeSiFv1Lww=="></script>
+<script src="./Forest Admin ‣ Data ‣ My Garages_files/chunk.40.7770dd5551ed3e99a09a.js" integrity="sha256-zYS4CdvdZDwXrKUNkw8kg0vGBit7v/iqnOP3OHsmgzU= sha512-p5oVEQ4vA8pY9Ge8g1/rH19lSpCno1SHbCb9DI6bibZ2CdwcggQRpDROI26EaMj8hKWWjobS5tom250TWSwjqQ=="></script>
+<script src="./Forest Admin ‣ Data ‣ My Garages_files/chunk.143.6b0742db5c8b25f2c92a.js" integrity="sha256-wKt4OUyE3uWVjrrVhx6wUC4BVU6I5Yg+OMHdESCAhl8= sha512-9QlPJiEakjFOLyATHK5XhyG2nHqQ69TTlA2kBs9imPzx7827mzHrJJeAuvX3ONr/LYMfNTP6FuAfWMKSwCA7gg=="></script>
+    <script src="./Forest Admin ‣ Data ‣ My Garages_files/client-908dc1b69ecd54b5b56816a5a216d9e5.js" integrity="sha256-bhCIEd4huisehB6U1PyPHGWQA1Xane+kAvH9LVTs4MI= sha512-ELJLmt3QbpqzRiIPOZTuazUmmk95LaWlHHOj2QwnXH70VZ6CnmlJfcPHlEThkBWIl7jGI3ch+9jPZHjmtI3CiA=="></script>
+
+    <script type="text/javascript">!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","user","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";analytics.load("8XBmylUW2KdhLnSvB0ouhuAuzTMHEgYQ");}}();</script>
+  
+
+<!---->
+<!----><!---->
+<!---->
+
+  <div class="c-project " id="global">
+    <div id="overlays"></div>
+
+<!---->
+          <div class="c-notification c-notification--development">
+        <div class="c-notification__message">
+          <span>Currently running Forest Admin on Development environment.</span>
+              <span class="c-notification__deploy-to-production">
+                <button class=" c-beta-button c-beta-button--link-inherit c-beta-button--normal c-notification__link">
+    <span class="c-beta-button__text
+        
+        c-beta-button__text--underline">
+      Deploy to production
+    </span>
+<!---->
+<!----></button>
+
+              </span>
+        </div>
+      </div>
+
+<!---->
+
+          <div id="quick-tour-bubble-id-setupGuide" class="c-quick-tour-bubble " role="button" style="--notification-bar-offset:0px; --position-top:758px; --position-left:35px;">
+    <i class="material-icons c-quick-tour-bubble__icon">
+      info
+    </i>
+  </div>
+
+  <div id="ember25" class="ember-tooltip-base ember-view">  <div>
+<!---->  </div>
+</div>
+
+  <svg class="c-quick-tour-overlay c-quick-tour-overlay--hidden">
+  <defs>
+    <mask id="quick-tour-overlay-mask-setupGuide">
+      <rect x="0" y="0" class="c-quick-tour-overlay__mask"></rect>
+        <circle id="quick-tour-overlay-shape-mask-setupGuide-0" cx="0" cy="0" r="0" fill="black"></circle>
+    </mask>
+  </defs>
+  <rect x="0" y="0" mask="url(#quick-tour-overlay-mask-setupGuide)" class="c-quick-tour-overlay__filler"></rect>
+    <circle id="quick-tour-overlay-shape-setupGuide-0" class="c-quick-tour-overlay__clickable-hole" cx="0" cy="0" r="0" fill="transparent" role="button"></circle>
+</svg>
+
+
+    <div id="quick-tour-bubble-id-projectSettings" class="c-quick-tour-bubble " role="button" style="--notification-bar-offset:0px; --position-top:70px; --position-left:30px;">
+    <i class="material-icons c-quick-tour-bubble__icon">
+      info
+    </i>
+  </div>
+
+  <div id="ember27" class="ember-tooltip-base ember-view">  <div>
+<!---->  </div>
+</div>
+
+  <svg class="c-quick-tour-overlay c-quick-tour-overlay--hidden">
+  <defs>
+    <mask id="quick-tour-overlay-mask-projectSettings">
+      <rect x="0" y="0" class="c-quick-tour-overlay__mask"></rect>
+        <rect id="quick-tour-overlay-shape-mask-projectSettings-0" x="0" y="0" fill="black"></rect>
+    </mask>
+  </defs>
+  <rect x="0" y="0" mask="url(#quick-tour-overlay-mask-projectSettings)" class="c-quick-tour-overlay__filler"></rect>
+    <rect id="quick-tour-overlay-shape-projectSettings-0" class="c-quick-tour-overlay__clickable-hole" x="0" y="0" fill="transparent" role="button"></rect>
+</svg>
+
+
+    <div id="quick-tour-bubble-id-layoutEditor" class="c-quick-tour-bubble " role="button" style="--notification-bar-offset:0px; --position-top:75px; --position-left:682.406px;">
+    <i class="material-icons c-quick-tour-bubble__icon">
+      info
+    </i>
+  </div>
+
+  <div id="ember59" class="ember-tooltip-base ember-view">  <div>
+<!---->  </div>
+</div>
+
+  <svg class="c-quick-tour-overlay c-quick-tour-overlay--hidden">
+  <defs>
+    <mask id="quick-tour-overlay-mask-layoutEditor">
+      <rect x="0" y="0" class="c-quick-tour-overlay__mask"></rect>
+        <rect id="quick-tour-overlay-shape-mask-layoutEditor-0" x="0" y="0" fill="black"></rect>
+    </mask>
+  </defs>
+  <rect x="0" y="0" mask="url(#quick-tour-overlay-mask-layoutEditor)" class="c-quick-tour-overlay__filler"></rect>
+    <rect id="quick-tour-overlay-shape-layoutEditor-0" class="c-quick-tour-overlay__clickable-hole" x="0" y="0" fill="transparent" role="button"></rect>
+</svg>
+
+
+    <div id="quick-tour-bubble-id-collectionNavigation" class="c-quick-tour-bubble " role="button" style="--notification-bar-offset:0px; --position-top:155px; --position-left:299px;">
+    <i class="material-icons c-quick-tour-bubble__icon">
+      info
+    </i>
+  </div>
+
+  <div id="ember61" class="ember-tooltip-base ember-view">  <div>
+<!---->  </div>
+</div>
+
+  <svg class="c-quick-tour-overlay c-quick-tour-overlay--hidden">
+  <defs>
+    <mask id="quick-tour-overlay-mask-collectionNavigation">
+      <rect x="0" y="0" class="c-quick-tour-overlay__mask"></rect>
+        <rect id="quick-tour-overlay-shape-mask-collectionNavigation-0" x="0" y="0" fill="black"></rect>
+    </mask>
+  </defs>
+  <rect x="0" y="0" mask="url(#quick-tour-overlay-mask-collectionNavigation)" class="c-quick-tour-overlay__filler"></rect>
+    <rect id="quick-tour-overlay-shape-collectionNavigation-0" x="0" y="0" fill="transparent" role="button"></rect>
+</svg>
+
+
+  <!---->
+  <!---->
+  <!---->
+
+
+    <div class="c-project__menu-container">
+        <div class="c-navigation">
+  <div class="c-navigation-dropdown-container">
+  
+    <!---->
+
+    <div class="c-navigation-project-button
+    
+     js-quick-tour-projectSettings
+    ">
+  <img role="button" src="./Forest Admin ‣ Data ‣ My Garages_files/logo-9e40e236001069f29ce34cd659960e11.svg" alt="KEVIN-DEMO-2022" class="c-navigation-project-button__image">
+  <i class="c-navigation-project-button__arrow">arrow_drop_down</i>
+</div>
+
+  
+</div>
+
+  <div class="c-navigation__main-links">
+          <a href="https://app.forestadmin.com/KEVIN-DEMO-2022/Development/Operations/data" id="navigation-icon-button-Data" class="c-navigation-icon-button--active ember-view 
+      c-navigation-icon-button
+      
+      " data-sortable-item="true" style="touch-action: none;">
+    
+      <i class="material-icons c-beta-icon  c-beta-icon--normal c-navigation-icon-button__icon">
+    format_list_bulleted
+  </i>
+
+<!---->  
+  </a>
+
+  <div id="ember38" class="ember-tooltip-base ember-view">  <div>
+<!---->  </div>
+</div>
+
+
+          <a href="https://app.forestadmin.com/KEVIN-DEMO-2022/Development/Operations/workspaces" id="navigation-icon-button-Workspaces" class="ember-view 
+      c-navigation-icon-button
+      
+      " data-sortable-item="true" style="touch-action: none;">
+    
+      <i class="material-icons c-beta-icon  c-beta-icon--normal c-navigation-icon-button__icon">
+    extension
+  </i>
+
+<!---->  
+  </a>
+
+  <div id="ember40" class="ember-tooltip-base ember-view">  <div>
+<!---->  </div>
+</div>
+
+
+          <a href="https://app.forestadmin.com/KEVIN-DEMO-2022/Development/Operations/dashboard" id="navigation-icon-button-Dashboard" class="ember-view 
+      c-navigation-icon-button
+      
+      " data-sortable-item="true" style="touch-action: none;">
+    
+      <i class="material-icons c-beta-icon  c-beta-icon--normal c-navigation-icon-button__icon">
+    show_chart
+  </i>
+
+<!---->  
+  </a>
+
+  <div id="ember42" class="ember-tooltip-base ember-view">  <div>
+<!---->  </div>
+</div>
+
+
+          <a href="https://app.forestadmin.com/KEVIN-DEMO-2022/Development/Operations/collaboration" id="navigation-icon-button-Collaboration" class="ember-view 
+      c-navigation-icon-button
+      
+      " data-sortable-item="true" style="touch-action: none;">
+    
+      <i class="material-icons c-beta-icon  c-beta-icon--normal c-navigation-icon-button__icon">
+    chat_bubble_outline
+  </i>
+
+<!---->  
+  </a>
+
+  <div id="ember44" class="ember-tooltip-base ember-view">  <div>
+<!---->  </div>
+</div>
+
+
+          <a href="https://app.forestadmin.com/KEVIN-DEMO-2022/Development/Operations/activity" id="navigation-icon-button-Activity" class="ember-view 
+      c-navigation-icon-button
+      
+      " data-sortable-item="true" style="touch-action: none;">
+    
+      <i class="material-icons c-beta-icon  c-beta-icon--normal c-navigation-icon-button__icon">
+    settings_backup_restore
+  </i>
+
+<!---->  
+  </a>
+
+  <div id="ember46" class="ember-tooltip-base ember-view">  <div>
+<!---->  </div>
+</div>
+
+
+  </div><span aria-live="polite" class="visually-hidden"></span>
+    <div class="c-navigation-dropdown-container">
+  
+      <!---->
+
+          <div role="button" id="navigation-icon-button-Help" class="js-quick-tour-setupGuide c-navigation-icon-button ember-tooltip-target">
+    
+      <i class="material-icons-outlined c-beta-icon  c-beta-icon--normal c-navigation-icon-button__icon">
+    lightbulb
+  </i>
+
+<!---->  
+  </div>
+
+  <div id="ember22" class="ember-tooltip-base ember-view">  <div>
+<!---->  </div>
+</div>
+
+
+    
+</div>
+
+  <div class="c-navigation-dropdown-container">
+  
+    <!---->
+
+    <div class="c-navigation-user-button">
+  <div class="c-navigation-avatar   c-navigation-user-button__user">
+    <img src="./Forest Admin ‣ Data ‣ My Garages_files/5b5bc666b108fc0bf61c0fa146e9891f.png" srcset="https://www.gravatar.com/avatar/5b5bc666b108fc0bf61c0fa146e9891f?d=blank&amp;s=32 1x,https://www.gravatar.com/avatar/5b5bc666b108fc0bf61c0fa146e9891f?d=blank&amp;s=48 1.5x,https://www.gravatar.com/avatar/5b5bc666b108fc0bf61c0fa146e9891f?d=blank&amp;s=64 2x" alt="KG" class="c-navigation-avatar__image">
+  KG
+</div>
+
+  <div class="c-navigation-avatar c-navigation-avatar--active  c-navigation-user-button__team">
+<!---->  Op
+</div>
+
+  <i class="c-navigation-user-button__arrow">
+    arrow_drop_down
+  </i>
+</div>
+
+  
+</div>
+
+</div>
+
+
+      <div class="c-project__page-container">
+        <div class="c-project-rendering">
+<!---->      <div class="l-liana-login l-liana-login--hide">
+  <div class="c-liana-login">
+        <div class="liana-login-oidc ">
+      <h2 class="liana-login-oidc__title">
+        You have been disconnected
+      </h2>
+
+      <div class="liana-login-oidc__error">
+        <p>
+          An error occurred while accessing your data.
+        </p>
+      </div>
+
+      <p class="liana-login-oidc__error-explanation">
+        Please check that the agent is running, and that you have access to the internet.
+      </p>
+    
+<!---->
+    <footer class="liana-login-oidc-footer" aria-label="liana-login-oidc-footer">
+        <div class="liana-login-oidc-footer-try-again">
+          <button class=" c-beta-button c-beta-button--primary c-beta-button--normal ">
+    <span class="c-beta-button__text
+        
+        ">
+      Log in again
+    </span>
+<!---->
+<!----></button>
+
+        </div>
+
+      <div class="liana-login-oidc-footer-other-actions">
+        <span class="liana-login-oidc-footer__not-your-account">
+          Not your account?
+        </span>
+
+        <button class=" c-beta-button c-beta-button--link-secondary c-beta-button--normal  liana-login-oidc-footer__logout">
+    <span class="c-beta-button__text
+        
+        c-beta-button__text--underline">
+      Log out
+    </span>
+<!---->
+<!----></button>
+
+      </div>
+
+      <div class="liana-login-oidc-footer__back-to-projects">
+            <a href="https://app.forestadmin.com/projects" id="ember47" class="ember-view c-beta-button c-beta-button--link-primary c-beta-button--normal c-beta-button--icon-before"><span class="c-beta-button__text
+          
+          ">Back to projects list</span><i class="material-icons c-beta-button__icon c-beta-button__icon--normal
+          
+          
+          c-beta-button__icon--left">arrow_back</i></a>
+
+      </div>
+    </footer>
+  </div>
+
+<!---->
+  </div>
+</div>
+
+<!---->
+    <div id="portal-for-application-view-overlay" class="c-project-rendering__application-view"></div>
+
+
+    <div class="c-project-rendering__main-container">
+        <div class="c-project-rendering__content">
+          <!---->
+          <div class="l-project-rendering-view c-project-rendering-data">
+    <div class=" js-quick-tour-collectionNavigation c-beta-side-menu ">
+    <div class="c-beta-side-menu-header">
+  <div class="l-beta-side-menu-header-title">
+    <span class="c-beta-side-menu-header__title">
+      Collections
+    </span>
+      <button class=" c-beta-button c-beta-button--secondary-outline c-beta-button--normal c-beta-button--icon-only  c-beta-side-menu-header__hide-button">
+<!---->      <img class="c-beta-button__icon c-beta-button__icon--normal" src="./Forest Admin ‣ Data ‣ My Garages_files/icon--close-menu-12d6d5795a961ac08f21cd3452d886ea.svg" alt="custom:icon--close-menu">
+
+<!----></button>
+
+  </div>
+
+  
+      
+    <button class="c-button-global-search" type="button">
+    <i class="material-icons c-beta-icon   c-beta-icon--custom c-button-global-search__icon">
+    search
+  </i>
+
+  <span class="c-button-global-search__text">Jump to...</span>
+  <span class="c-button-global-search__shortcut">
+    ⌘K
+  </span>
+</button>
+
+  
+    
+</div>
+
+  <div class="l-beta-side-menu-content">
+    
+    <div class="c-beta-side-menu-section">
+<!---->
+  <div class="l-beta-side-menu-section-content">
+    
+      <div class="l-beta-side-menu-container sortable-item" data-id="myGarage" data-sortable-item="true" style="touch-action: none;">
+  <a href="https://app.forestadmin.com/KEVIN-DEMO-2022/Development/Operations/data/myGarage/index" id="ember48" class="c-beta-side-menu-item--active ember-view c-beta-side-menu-item">
+    <div class="c-beta-side-menu-item-content l-beta-side-menu-container__content
+        ">
+<!---->      <span class="c-beta-icon c-beta-icon--emoji  c-beta-side-menu-item-content__icon">
+    🗄️
+  </span>
+
+  <span id="tooltip-target-ember49" class="c-beta-side-menu-item-content__name" title="My Garages">
+    My Garages
+  </span>
+
+<!---->
+<!----></div>
+
+  </a>
+
+    <div class="l-beta-side-menu-container__sub-items
+        ">
+      
+<!---->      
+    </div>
+</div><span aria-live="polite" class="visually-hidden"></span>
+
+
+  </div>
+</div><span aria-live="polite" class="visually-hidden"></span>
+
+
+  
+  </div>
+  <div class="c-beta-side-menu__resize-handle"></div>
+      <p class="c-side-menu-branding">
+    Made with
+    <i class="material-icons c-side-menu-branding__icon">
+      favorite
+    </i>
+    by Forest Admin
+  </p>
+
+</div>
+
+
+
+  <div class="l-project-rendering-view__content">
+        <!---->
+
+  <header class="c-beta-header ">
+  <div class="l-beta-header-main">
+    <div class="l-beta-header-main__title">
+<!---->        <div class="c-beta-header__title-wrapper">
+          <h1 class="c-beta-header__title" title="🗄️ My Garages">
+            🗄️ My Garages
+          </h1>
+          
+        </div>
+      
+<!---->    
+    </div>
+
+      <div class="l-beta-header-main__search-and-filter">
+        
+          <div id="ember87" class="c-beta-search-bar ember-view c-collection-list-header__search-bar"><i class="material-icons c-beta-search-bar__icon" role="button">
+  search
+</i>
+<form class="c-beta-search-bar__form">
+  <input id="ember88" class="ember-text-field ember-view js-beta-search-bar-input c-beta-search-bar__input" placeholder="Search..." autocomplete="off" aria-label="search" type="text">
+</form>
+</div>
+
+          <div id="ember89" class="ember-view c-collection-list-header__action"><div id="ember90" class="ember-view">
+  <div id="js-filter-button-ember89" class="c-beta-filter-button
+      
+      ">
+    <i class="material-icons c-beta-filter-button__icon">
+      filter_list
+    </i>
+      <span class="c-beta-filter-button__text">
+          Filter
+              </span>
+  </div>
+</div>
+
+<!----></div>
+    
+      </div>
+
+      <div class="l-beta-header-main__right-buttons">
+              <div id="layout-editor-button">
+      <button class=" js-quick-tour-layoutEditor c-beta-button c-beta-button--editor-light c-beta-button--normal c-beta-button--icon-before ">
+    <span class="c-beta-button__text
+        
+        ">
+      Edit layout
+    </span>
+        <i class="material-icons c-beta-icon  c-beta-icon--normal c-beta-button__icon c-beta-button__icon--normal c-beta-button__icon--left">
+    layers
+  </i>
+
+
+<!----></button>
+
+    </div>
+<!---->
+
+        
+        <button class=" c-beta-button c-beta-button--secondary c-beta-button--normal c-beta-button--icon-only  c-collection-list-header__action">
+<!---->        <i class="material-icons c-beta-icon  c-beta-icon--normal c-beta-button__icon c-beta-button__icon--normal">
+    refresh
+  </i>
+
+
+<!----></button>
+
+
+        <div id="ember56" class="ember-view c-collection-list-header__action"><!---->
+<div class="c-beta-dropdown c-beta-dropdown-actions-container ember-tooltip-target" role="button" id="ember56-smart-actions-tooltip-target">
+    
+  <button class=" c-beta-button c-beta-button--secondary c-beta-button--normal ">
+    <span class="c-beta-button__text
+        
+        ">
+      Actions
+    </span>
+<!---->
+<!----></button>
+
+<!---->
+</div>
+
+</div>
+
+          <button class=" c-beta-button c-beta-button--primary c-beta-button--normal c-beta-button--icon-before  c-collection-list-header__add-button c-collection-list-header__action" title="Create a new my garage">
+    <span class="c-beta-button__text
+        c-collection-list-header__add-button-text
+        ">
+      Add
+    </span>
+        <i class="material-icons c-beta-icon  c-beta-icon--normal c-beta-button__icon c-beta-button__icon--normal c-beta-button__icon--left c-collection-list-header__add-button-icon">
+    add
+  </i>
+
+
+<!----></button>
+
+    
+      </div>
+  </div>
+
+<!----></header>
+
+
+  <div class="collectionList__content">
+    <div class="c-beta-collection-list" data-beta-collection-list="">
+<!---->  <div class="l-beta-collection-list-body">
+          <div id="ember64" class="c-table-view ember-view" data-beta-collection-list-view="data-display/table-view">  <div class="c-layout-collection-empty ">
+  <div class="c-layout-collection-empty__animation js-lottie-container-ember125"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 680" width="750" height="680" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);"><defs><clippath id="__lottie_element_583"><rect width="750" height="680" x="0" y="0"></rect></clippath><clippath id="__lottie_element_585"><path d="M0,0 L250,0 L250,250 L0,250z"></path></clippath><clippath id="__lottie_element_616"><path d="M0,0 L250,0 L250,250 L0,250z"></path></clippath><clippath id="__lottie_element_620"><path d="M0,0 L250,0 L250,250 L0,250z"></path></clippath><clippath id="__lottie_element_660"><path d="M0,0 L250,0 L250,250 L0,250z"></path></clippath><clippath id="__lottie_element_676"><path d="M0,0 L1920,0 L1920,1080 L0,1080z"></path></clippath></defs><g clip-path="url(#__lottie_element_583)"><g clip-path="url(#__lottie_element_676)" transform="matrix(-0.32882219552993774,-0.8138634562492371,0.8138634562492371,-0.32882219552993774,201.18301391601562,1274.3729248046875)" opacity="1" style="display: none;"><g class="c-forest-animation__fill--dark" transform="matrix(0.12270000576972961,0,0,0.12270000576972961,807.2500610351562,693.1499633789062)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(4.800000190734863,0,0,4.800000190734863,0,0)"><path fill="rgb(156,17,47)" fill-opacity="1" d=" M0,-17 C9.38230037689209,-17 17,-9.38230037689209 17,0 C17,0 17,0 17,0 C17,9.38230037689209 9.38230037689209,17 0,17 C0,17 0,17 0,17 C-9.38230037689209,17 -17,9.38230037689209 -17,0 C-17,0 -17,0 -17,0 C-17,-9.38230037689209 -9.38230037689209,-17 0,-17 C0,-17 0,-17 0,-17z"></path></g></g><g class="c-forest-animation__fill--dark" transform="matrix(0.12270000576972961,0,0,0.12270000576972961,807.1499633789062,691.8500366210938)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(4.800000190734863,0,0,4.800000190734863,0,0)"><path fill="rgb(156,17,47)" fill-opacity="1" d=" M0,-17 C9.38230037689209,-17 17,-9.38230037689209 17,0 C17,0 17,0 17,0 C17,9.38230037689209 9.38230037689209,17 0,17 C0,17 0,17 0,17 C-9.38230037689209,17 -17,9.38230037689209 -17,0 C-17,0 -17,0 -17,0 C-17,-9.38230037689209 -9.38230037689209,-17 0,-17 C0,-17 0,-17 0,-17z"></path></g></g><g class="c-forest-animation__fill--darker" transform="matrix(0.12270000576972961,0,0,0.12270000576972961,807.1835327148438,693.0517578125)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(4.800000190734863,0,0,4.800000190734863,0,0)"><path fill="rgb(112,24,43)" fill-opacity="1" d=" M0,-17 C9.38230037689209,-17 17,-9.38230037689209 17,0 C17,0 17,0 17,0 C17,9.38230037689209 9.38230037689209,17 0,17 C0,17 0,17 0,17 C-9.38230037689209,17 -17,9.38230037689209 -17,0 C-17,0 -17,0 -17,0 C-17,-9.38230037689209 -9.38230037689209,-17 0,-17 C0,-17 0,-17 0,-17z"></path></g></g><g class="c-forest-animation__fill--base" transform="matrix(0.12270000576972961,0,0,0.12270000576972961,807.2500610351562,691.8500366210938)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(4.800000190734863,0,0,4.800000190734863,0,0)"><path fill="rgb(237,0,54)" fill-opacity="1" d=" M0,-17 C9.38230037689209,-17 17,-9.38230037689209 17,0 C17,0 17,0 17,0 C17,9.38230037689209 9.38230037689209,17 0,17 C0,17 0,17 0,17 C-9.38230037689209,17 -17,9.38230037689209 -17,0 C-17,0 -17,0 -17,0 C-17,-9.38230037689209 -9.38230037689209,-17 0,-17 C0,-17 0,-17 0,-17z"></path></g></g></g><g clip-path="url(#__lottie_element_616)" style="display: block;" transform="matrix(0.9021831750869751,-0.4313635230064392,0.4313635230064392,0.9021831750869751,221.1069793701172,283.17535400390625)" opacity="1"><g clip-path="url(#__lottie_element_660)" style="display: none;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g class="c-forest-animation__stroke--dark" transform="matrix(1,0,0,1,108.5,108.5)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1.4142135381698608,1.4142135381698608,-1.4142135381698608,1.4142135381698608,0,0)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(156,17,47)" stroke-opacity="1" stroke-width="7.802" d=" M-0.7070000171661377,-15.90999984741211 C-0.7070000171661377,-15.90999984741211 -0.7070000171661377,15.237000465393066 -0.7070000171661377,15.237000465393066"></path></g></g><g class="c-forest-animation__stroke--dark" transform="matrix(-1,0,0,1,108.5,108.5)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1.42179536819458,1.4065909385681152,-1.4065909385681152,1.42179536819458,27.238000869750977,-26.597999572753906)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(156,17,48)" stroke-opacity="1" stroke-width="7.802" d="M0 0"></path></g></g><g class="c-forest-animation__stroke--base" transform="matrix(-1,0,0,1,108.5,108.5)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1.42179536819458,1.4065909385681152,-1.4065909385681152,1.42179536819458,27.238000869750977,-26.597999572753906)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(237,0,54)" stroke-opacity="1" stroke-width="7.802" d=" M0.34200000762939453,2.122999906539917 C0.34200000762939453,2.122999906539917 0.3540000021457672,33.619998931884766 0.3540000021457672,33.619998931884766"></path></g></g><g class="c-forest-animation__stroke--darker" transform="matrix(1,0,0,1,108.5,108.5)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1.4142135381698608,1.4142135381698608,-1.4142135381698608,1.4142135381698608,0,0)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(113,25,44)" stroke-opacity="1" stroke-width="7.802" d="M0 0"></path></g></g></g><g clip-path="url(#__lottie_element_620)" style="display: block;" transform="matrix(1,0,0,1,0,0)" opacity="1"><g class="c-forest-animation__stroke--base" transform="matrix(-1,0,0,1,108.5,108.5)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1.42179536819458,1.4065909385681152,-1.4065909385681152,1.42179536819458,27.238000869750977,-26.597999572753906)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(237,0,54)" stroke-opacity="1" stroke-width="7.802" d=" M0.3440000116825104,8.42199993133545 C0.3479999899864197,17.61400032043457 0.3540000021457672,33.619998931884766 0.3540000021457672,33.619998931884766"></path></g></g><g class="c-forest-animation__stroke--dark" transform="matrix(1,0,0,1,108.5,108.5)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1.4142135381698608,1.4142135381698608,-1.4142135381698608,1.4142135381698608,0,0)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(156,17,47)" stroke-opacity="1" stroke-width="7.802" d=" M-0.7070000171661377,-9.680999755859375 C-0.7070000171661377,-0.5910000205039978 -0.7070000171661377,15.237000465393066 -0.7070000171661377,15.237000465393066"></path></g></g><g class="c-forest-animation__stroke--dark" transform="matrix(-1,0,0,1,108.5,108.5)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1.42179536819458,1.4065909385681152,-1.4065909385681152,1.42179536819458,27.238000869750977,-26.597999572753906)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(156,17,48)" stroke-opacity="1" stroke-width="7.802" d=" M0.34200000762939453,2.122999906539917 C0.34200000762939453,2.122999906539917 0.34299999475479126,4.71999979019165 0.3440000116825104,8.42199993133545"></path></g></g><g class="c-forest-animation__stroke--darker" transform="matrix(1,0,0,1,108.5,108.5)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1.4142135381698608,1.4142135381698608,-1.4142135381698608,1.4142135381698608,0,0)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(113,25,44)" stroke-opacity="1" stroke-width="7.802" d=" M-0.7070000171661377,-15.90999984741211 C-0.7070000171661377,-15.90999984741211 -0.7070000171661377,-13.342000007629395 -0.7070000171661377,-9.680999755859375"></path></g></g><g class="c-forest-animation__stroke--darker" transform="matrix(-1,0,0,1,108.5,108.5)" opacity="1" style="display: none;"><g opacity="1" transform="matrix(1.42179536819458,1.4065909385681152,-1.4065909385681152,1.42179536819458,27.238000869750977,-26.597999572753906)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(113,25,44)" stroke-opacity="1" stroke-width="7.802" d=" M0.35199999809265137,27.320999145507812 C0.3529999852180481,31.023000717163086 0.3540000021457672,33.619998931884766 0.3540000021457672,33.619998931884766"></path></g></g><g class="c-forest-animation__stroke--base" transform="matrix(1,0,0,1,108.5,108.5)" opacity="1" style="display: none;"><g opacity="1" transform="matrix(1.4142135381698608,1.4142135381698608,-1.4142135381698608,1.4142135381698608,0,0)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(238,0,54)" stroke-opacity="1" stroke-width="7.802" d=" M-0.7070000171661377,9.008000373840332 C-0.7070000171661377,12.668999671936035 -0.7070000171661377,15.237000465393066 -0.7070000171661377,15.237000465393066"></path></g></g><g class="c-forest-animation__stroke--base" transform="matrix(-1,0,0,1,108.5,108.5)" opacity="1" style="display: none;"><g opacity="1" transform="matrix(1.42179536819458,1.4065909385681152,-1.4065909385681152,1.42179536819458,27.238000869750977,-26.597999572753906)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(237,0,54)" stroke-opacity="1" stroke-width="7.802" d=" M0.34200000762939453,2.122999906539917 C0.34200000762939453,2.122999906539917 0.3479999899864197,18.128999710083008 0.35199999809265137,27.320999145507812"></path></g></g><g class="c-forest-animation__stroke--dark" transform="matrix(1,0,0,1,108.5,108.5)" opacity="1" style="display: none;"><g opacity="1" transform="matrix(1.4142135381698608,1.4142135381698608,-1.4142135381698608,1.4142135381698608,0,0)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(156,17,47)" stroke-opacity="1" stroke-width="7.802" d=" M-0.7070000171661377,-15.90999984741211 C-0.7070000171661377,-15.90999984741211 -0.7070000171661377,-0.0820000022649765 -0.7070000171661377,9.008000373840332"></path></g></g><g class="c-forest-animation__stroke--dark" transform="matrix(-1,0,0,1,108.5,108.5)" opacity="1" style="display: none;"><g opacity="1" transform="matrix(1.42179536819458,1.4065909385681152,-1.4065909385681152,1.42179536819458,27.238000869750977,-26.597999572753906)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(156,17,48)" stroke-opacity="1" stroke-width="7.802" d="M0 0"></path></g></g><g class="c-forest-animation__stroke--darker" transform="matrix(1,0,0,1,108.5,108.5)" opacity="1" style="display: none;"><g opacity="1" transform="matrix(1.4142135381698608,1.4142135381698608,-1.4142135381698608,1.4142135381698608,0,0)"><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(113,25,44)" stroke-opacity="1" stroke-width="7.802" d="M0 0"></path></g></g><g class="c-forest-animation__stroke--darker" style="display: none;"><g><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4"></path></g></g><g class="c-forest-animation__stroke--base" style="display: none;"><g><path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4"></path></g></g></g></g><g clip-path="url(#__lottie_element_585)" style="display: block;" transform="matrix(1.077514410018921,-0.07323084771633148,0.07323084771633148,1.077514410018921,241.60523986816406,226.6750030517578)" opacity="1"><g class="c-forest-animation__stroke--base" transform="matrix(1,0,0,1,125.00599670410156,125.00599670410156)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(-2.6516504287719727,-2.6516504287719727,2.6516504287719727,-2.6516504287719727,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(238,0,54)" stroke-opacity="1" stroke-width="5" d="M0 0"></path></g></g><g class="c-forest-animation__stroke--dark" transform="matrix(1,0,0,1,125.00599670410156,125.00599670410156)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(-2.6516504287719727,-2.6516504287719727,2.6516504287719727,-2.6516504287719727,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(156,17,48)" stroke-opacity="1" stroke-width="5" d="M0 0"></path></g></g><g class="c-forest-animation__stroke--darker" transform="matrix(1,0,0,1,125.00599670410156,125.00599670410156)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(-2.6516504287719727,-2.6516504287719727,2.6516504287719727,-2.6516504287719727,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(112,24,43)" stroke-opacity="1" stroke-width="5" d=" M7.0980000495910645,19.992000579833984 C-2.5390000343322754,19.716999053955078 -10.4399995803833,12.654000282287598 -12.027999877929688,3.390000104904175"></path></g></g><g class="c-forest-animation__stroke--base" transform="matrix(1,0,0,1,125.00599670410156,125.00599670410156)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(-2.6516504287719727,-2.6516504287719727,2.6516504287719727,-2.6516504287719727,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(238,0,54)" stroke-opacity="1" stroke-width="5" d=" M23.05500030517578,-12.793999671936035 C25.944000244140625,-9.32699966430664 27.68199920654297,-4.867000102996826 27.68199920654297,0 C27.68199920654297,11.050000190734863 18.722000122070312,20 7.682000160217285,20 C7.486999988555908,20 7.291999816894531,19.996999740600586 7.0980000495910645,19.992000579833984"></path></g></g><g class="c-forest-animation__stroke--dark" transform="matrix(1,0,0,1,125.00599670410156,125.00599670410156)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(-2.6516504287719727,-2.6516504287719727,2.6516504287719727,-2.6516504287719727,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(156,17,48)" stroke-opacity="1" stroke-width="5" d=" M-12.083999633789062,-3.071000099182129 C-10.607000350952148,-12.661999702453613 -2.322999954223633,-20 7.682000160217285,-20 C13.859000205993652,-20 19.385000228881836,-17.197999954223633 23.05500030517578,-12.793999671936035"></path></g></g><g class="c-forest-animation__stroke--darker" transform="matrix(1,0,0,1,125.00599670410156,125.00599670410156)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(-2.6516504287719727,-2.6516504287719727,2.6516504287719727,-2.6516504287719727,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(112,24,43)" stroke-opacity="1" stroke-width="5" d=" M-27.67799949645996,0 C-27.67799949645996,0 -12.317999839782715,0 -12.317999839782715,0 C-12.317999839782715,-1.0449999570846558 -12.23799991607666,-2.069999933242798 -12.083999633789062,-3.071000099182129"></path></g></g><g class="c-forest-animation__stroke--base" transform="matrix(1,0,0,1,125.00599670410156,125.00599670410156)" opacity="1" style="display: none;"><g opacity="1" transform="matrix(-2.6516504287719727,-2.6516504287719727,2.6516504287719727,-2.6516504287719727,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(238,0,54)" stroke-opacity="1" stroke-width="5" d=" M-27.67799949645996,0 C-27.67799949645996,0 -12.317999839782715,0 -12.317999839782715,0 C-12.317999839782715,-7.578000068664551 -8.109000205993652,-14.168000221252441 -1.899999976158142,-17.56100082397461"></path></g></g><g class="c-forest-animation__stroke--dark" transform="matrix(1,0,0,1,125.00599670410156,125.00599670410156)" opacity="1" style="display: none;"><g opacity="1" transform="matrix(-2.6516504287719727,-2.6516504287719727,2.6516504287719727,-2.6516504287719727,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(156,17,48)" stroke-opacity="1" stroke-width="5" d=" M-27.67799949645996,0 C-27.67799949645996,0 -27.67799949645996,0 -27.67799949645996,0"></path></g></g><g class="c-forest-animation__stroke--darker" style="display: none;"><g><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0"></path></g></g></g></g></svg></div>
+
+    <h1 class="c-layout-collection-empty__title">
+      No
+      my garages
+    </h1>
+    <span class="c-layout-collection-empty__description">
+      There are no
+      my garages
+      yet.
+    </span>
+
+      <button class=" c-beta-button c-beta-button--primary c-beta-button--normal  c-layout-collection-empty__action">
+    <span class="c-beta-button__text
+        
+        ">
+      Create the first one
+    </span>
+<!---->
+<!----></button>
+
+  </div>
+
+</div>
+  </div>
+
+    <span></span>
+
+
+<!----></div>
+
+  </div>
+
+  </div>
+</div>
+
+        </div>
+    </div>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!---->
+
+
+<div id="ember4" class="c-beta-context-menu ember-view"><!----></div>
+<div id="portal-for-edit-inline" class="l-portal"></div>
+
+<div id="portal-for-modal" class="l-portal c-body-modal c-body-modal--open"></div>
+
+<div id="portal-for-widget-modal" class="l-portal c-body-modal c-body-modal--high"></div>
+
+<div id="portal-for-dropdown" class="l-portal"></div>
+
+<div id="portal-for-zoom-preview" class="l-portal"></div>
+
+<div></div><div></div><div class="appcues"></div></body></html>

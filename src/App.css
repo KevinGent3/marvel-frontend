@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+/* VARIABLES */
+@import url("https://fonts.googleapis.com/css2?family=Marvel:wght@400;700&display=swap");
+:root {
+  --white: #ffffff;
+  --header-height: 85px;
+  --red: #ed1d24;
+  --black: #1a1b1d;
+  --black-header: #131414;
+  --lightgrey: #ececec;
+}
+body {
+  font-family: "Marvel", sans-serif;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1024px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* HEADER */
+
+.header-container {
+  height: 85px;
+  border: solid 2px red;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--black);
+  margin-bottom: 20px;
+}
+header img {
+  height: 45px;
+  padding: 0 20px;
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav {
+  display: flex;
+  gap: 10px;
+}
+nav button {
+  background: var(--red);
+  color: var(--white);
+  height: 30px;
+  width: 200px;
+  border-radius: 5px;
+}
+nav .link-menu {
+  color: var(--white);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav .link-menu:hover {
+  color: var(--red);
+}
+.searchbar input {
+  border-radius: 5px;
+  width: 300px;
+  border: solid 2px var(--red);
+}
+
+/* COMICS & CHARACTERS PAGES */
+
+.character-container,
+.comic-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.character-card,
+.comic-card {
+  width: calc(100% / 5 - 8px);
+  margin-bottom: 10px;
+}
+.character-card:not(:nth-child(5n)),
+.comic-card:not(:nth-child(5n)) {
+  margin-right: 10px;
+}
+
+.character-card-infos,
+.comic-card-infos {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 10px 10px 20px 10px;
+}
+
+.character-card-infos,
+.comic-card-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 10px 20px 10px;
+}
+
+.comic-card-infos span,
+.character-card-infos span {
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--red);
+}
+.character-card img,
+.comic-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* PAGINATION */
+.pagination {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pagination button {
+  margin-right: 30px;
+  background: red;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: "Marvel", sans-serif;
+  font-weight: 700;
 }
