@@ -1,9 +1,10 @@
 import "./App.css";
 import { useState } from "react";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+
 import Characters from "./pages/Characters";
 import Comics from "./pages/Comics";
+import Character from "./pages/Character";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -27,8 +28,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Characters name={name} />} />
           <Route path="/comics" element={<Comics title={title} />} />
+          <Route path="/character/:id" element={<Character />} />
         </Routes>
-        <Footer />
       </Router>
     </div>
   );

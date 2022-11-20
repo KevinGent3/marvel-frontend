@@ -4,6 +4,7 @@ import Menu from "./Menu";
 
 const Header = ({ handleName, handleTitle }) => {
   const location = useLocation();
+
   return (
     <header>
       <div className="header-container">

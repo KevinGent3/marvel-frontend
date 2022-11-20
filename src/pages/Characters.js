@@ -1,15 +1,20 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Pagination from "../components/Pagination";
-const Characters = ({ name }) => {
+import { Link } from "react-router-dom";
+const Characters = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(100);
+  const [name, setName] = useState("");
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/characters");
+        const response = await axios.get(
+          `http://localhost:3000/characters?limit=${limit}&skip=${skip}&name=${name}`
+        );
         // console.log(response.data);
         setData(response.data);
         setIsLoading(false);
@@ -26,25 +31,31 @@ const Characters = ({ name }) => {
       <div className="character-container">
         {data.results.map((character, index) => {
           return (
-            <div className="character-card" key={character._id}>
+            <Link
+              className="character-card"
+              to={`/character/${character._id}`}
+              key={character._id}
+            >
               <div>
-                {character.thumbnail && (
-                  <img
-                    src={
-                      character.thumbnail.path +
-                      "." +
-                      character.thumbnail.extension
-                    }
-                    alt="personnage"
-                  />
-                )}
-              </div>
+                <div>
+                  {character.thumbnail && (
+                    <img
+                      src={
+                        character.thumbnail.path +
+                        "." +
+                        character.thumbnail.extension
+                      }
+                      alt="personnage"
+                    />
+                  )}
+                </div>
 
-              <div className="character-card-infos">
-                {character.name && <span>{character.name}</span>}
-                {character.description && <p>{character.description}</p>}
+                <div className="character-card-infos">
+                  {character.name && <span>{character.name}</span>}
+                  {character.description && <p>{character.description}</p>}
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

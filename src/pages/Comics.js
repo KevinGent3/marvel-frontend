@@ -7,13 +7,12 @@ const Comics = ({ title }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(100);
-  const [comics, setComics] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/comics?${limit}&skip=${skip}&title=${title}`
+          `http://localhost:3000/comics?limit=${limit}&skip=${skip}&title=${title}`
         );
         setIsLoading(false);
         // console.log(response.data);
